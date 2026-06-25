@@ -1,7 +1,26 @@
-import {useState} from 'react'
+//import {useState, ChangeEvent, FormEvent} from 'react'
 import {Link} from 'react-router-dom'
+
+//  interface FormData{
+//     username: string;
+//     email: string;
+//     serviceType: string;
+//  }
 function SignUp() {
- const [state, setState] = useState('')
+//  const [formData, setFormData] = useState<FormData>({
+//   username:'',
+//   email:'',
+//   serviceType: 'wash-and-fold'
+//  });
+
+//  const handleChange = (e: ChangeEvent<HTMLFormElement | HTMLSelectElement>) =>{
+//   const {name, value} = e.target;
+//   setFormData((prevData) =>{...prevData, [name]: value});
+
+//   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+//     e.preventDefault(); // Stops the page from reloading
+//     console.log("Collected User Data:", formData);
+//  }
   return (
     <>
     <form>
@@ -13,7 +32,7 @@ function SignUp() {
       <input type='number' className='' />
       <label >
          <h2 className=''>Where are you registering from ?</h2>
-        <select value={state} onChange={(e) => setState(e.target.value)} className=''>
+        <select className=''>
         <option value='abuja' >Abuja</option>
         <option value='kaduna' >Kaduna</option>
         <option value='lagos'>Lagos</option>
@@ -26,7 +45,7 @@ function SignUp() {
         <button className=''>Sign up</button>
         <div className=''>
           <p>Already have an account ? Login your account</p>
-        <button className=''><Link to="/login">Login</Link></button>
+        <Link to='/login'><button type='button'>Login</button></Link>
         </div>
     </form> 
     </>

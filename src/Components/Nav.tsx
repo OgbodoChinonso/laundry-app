@@ -1,10 +1,19 @@
 import {Link} from 'react-router-dom'
+import logo from '../assets/images/logo.png'
+ import '../App.css'
 
 
 function Nav() {
   return (
     <>
-    <nav className="main-nav">
+     <section >
+      <div id="main-header">
+      <img src={logo}></img>
+      <header>
+          <h1 style={{ color: "gold" }}>LakeSide Laundry</h1> 
+        </header> 
+    </div>
+     <nav className="main-nav">
             <ul style={{ listStyleType: 'none' }}>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/login">Login</Link></li>
@@ -12,6 +21,7 @@ function Nav() {
               <li><Link to="/about">About us</Link></li>
             </ul>
           </nav>
+      </section>
     </>
   )
 }
