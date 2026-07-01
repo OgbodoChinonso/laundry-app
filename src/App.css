@@ -203,7 +203,6 @@ header{
   margin-bottom: 6px;
 }
 .main-nav{
-  margin-left: 500px;
   background-color:rgb(31, 31, 44);
   border: 1px groove gold;
   border-radius: 5px 25px;
@@ -232,3 +231,17 @@ img{
   width: 90px;
   cursor: pointer;
 } 
+form{
+  background-color: rgb(60, 60, 78);
+  display:flex; justify-content: center; 
+  align-items: center;
+  min-height: screen;
+}
+.form{
+  width: 400px;
+  background-color: gray;
+  padding: 5px;
+  border:1px groove gold;
+  border-radius: 5px 25px; 
+  margin-top: 30px;
+}

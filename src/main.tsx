@@ -6,6 +6,7 @@ import Nav from './Components/Nav.tsx'
 import Login from './pages/Login.tsx'
 import SignUp from './pages/SignUp.tsx';
 import AboutUs from './pages/AboutUs.tsx';
+import Welcome from './pages/LoggedIn.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path='/login' element ={<Login />} /> 
         <Route path='/signup' element={<SignUp />} />
         <Route path='/about' element={<AboutUs />} />
+        <Route path='/welcome' element= {<Welcome />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

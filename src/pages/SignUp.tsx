@@ -1,52 +1,89 @@
-//import {useState, ChangeEvent, FormEvent} from 'react'
+import {useState} from 'react'
+import type { ChangeEvent } from 'react'
+import type { SubmitEvent } from 'react'
+import { userDetails } from '../store/userStore.ts';
+import { useNavigate } from 'react-router-dom';
 import {Link} from 'react-router-dom'
+import '../App.css'
 
-//  interface FormData{
-//     username: string;
-//     email: string;
-//     serviceType: string;
-//  }
 function SignUp() {
-//  const [formData, setFormData] = useState<FormData>({
-//   username:'',
-//   email:'',
-//   serviceType: 'wash-and-fold'
-//  });
+  const loginUser = userDetails((state) => state.loginUser);
 
-//  const handleChange = (e: ChangeEvent<HTMLFormElement | HTMLSelectElement>) =>{
-//   const {name, value} = e.target;
-//   setFormData((prevData) =>{...prevData, [name]: value});
+  const navigate = useNavigate();
 
-//   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-//     e.preventDefault(); // Stops the page from reloading
-//     console.log("Collected User Data:", formData);
-//  }
+  const [formData, setFormData] = useState({
+  firstname:'',
+  lastname:'',
+  location: 'abuja',
+  mobileNumber: '',
+
+ });
+
+ const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
+   const handleSubmit = (e: SubmitEvent) => {
+     e.preventDefault();
+     loginUser(formData); navigate('/welcome')
+ }
   return (
     <>
-    <form>
+    <form onSubmit={handleSubmit}>
+      <div className='form'>
         <h2 className=''>Lastname</h2>
-      <input type='text' className='' placeholder='Input lastname' />
-       <h2 className=''>Firstname</h2>
-      <input type='text' className='' placeholder='Input firstname' />
-       <h2 className=''>Mobile Number</h2>
-      <input type='number' className='' />
-      <label >
-         <h2 className=''>Where are you registering from ?</h2>
-        <select className=''>
-        <option value='abuja' >Abuja</option>
-        <option value='kaduna' >Kaduna</option>
-        <option value='lagos'>Lagos</option>
-        <option value='nasarawa'>Nasarawa</option>
-        <option value='phort-hacourt'>Phort-Hacourt</option>
-       </select>
-      </label>
-      <h2 className=''>Password</h2>
-      <input type='password' className='' placeholder='Password' /> 
-        <button className=''>Sign up</button>
-        <div className=''>
-          <p>Already have an account ? Login your account</p>
-        <Link to='/login'><button type='button'>Login</button></Link>
-        </div>
+              <input type='text'
+              value={formData.lastname} 
+              onChange={handleChange}
+               className=''
+               name= 'lastname'
+                placeholder='Input lastname' />
+
+               <h2 className=''>Firstname</h2>
+              <input type='text' 
+                value={formData.firstname}
+                onChange={handleChange}
+                className='' 
+                name= 'firstname'
+                placeholder='Input firstname' />
+
+               <h2 className=''> Mobile Number</h2>
+              <input type='text' 
+                value={formData.mobileNumber} 
+                className=''
+                name= 'mobileNumber'
+                placeholder='input mobile number'
+                onChange={handleChange} />
+
+              <label >
+                 <h2 className=''>Where are you registering from ?</h2>
+                <select
+                  onChange={handleChange}
+                  value={formData.location} 
+                  name='location' 
+                  className=''>
+                <option value='abuja' >Abuja</option>
+                <option value='kaduna' >Kaduna</option>
+                <option value='lagos'>Lagos</option>
+                <option value='nasarawa'>Nasarawa</option>
+                <option value='phort-hacourt'>Phort-Hacourt</option>
+               </select>
+              </label>
+
+              <h2 className=''>Password</h2>
+              <input type='password' className='' placeholder='Password' /> 
+ 
+                <button 
+                  type='submit' className=''>Sign up</button>
+                <div className=''>
+                  <p>Already have an account ? Login your account</p>
+                <Link to='/login'><button type='button'>Login</button></Link>
+                </div>
+      </div>
     </form> 
     </>
   )
