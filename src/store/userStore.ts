@@ -1,18 +1,19 @@
 import { create } from 'zustand';
 
 interface User{
-  user: {
-    firstname: string,
+      firstname: string,
     lastname: string,
     location: string,
     mobileNumber: string,
     // password: string | number,
-  }
-  loginUser: (userData: User['user']) => void,
+}
+interface UserState{
+  user: User | null,
+  loginUser: (userData: User) => void,
   logoutUser: () => void
 }
 
-export const userDetails = create<User>((set) =>({
+export const userDetails = create<UserState>((set) =>({
   user: null,
 loginUser: (userData) => set({user: userData}),
 logoutUser: () => set({user: null})

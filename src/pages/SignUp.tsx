@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 import '../App.css'
 
 function SignUp() {
-  const loginUser = userDetails((state) => state.loginUser);
+  const loginUser = userDetails((stat) => stat.loginUser);
 
   const navigate = useNavigate();
 

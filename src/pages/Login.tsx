@@ -17,7 +17,6 @@ function Login() {
   const handleSubmit = (e: SubmitEvent) => {
     e.preventDefault();
 
-    // 1. Save data to the global Zustand store
     loginUser(formData);
     navigate('/welcome');
   };
@@ -39,21 +38,5 @@ function Login() {
     </>
   )
 }
-
-
-// export default Login
-
- // Import your store
-
-// function Login() {
-  
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       {/* ... your inputs go here ... */}
-//       <button type="submit">Log In</button>
-//     </form>
-//   );
-// }
 
 export default Login;
