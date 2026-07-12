@@ -7,7 +7,7 @@ function Login() {
   const loginUser = userDetails((state) => state.loginUser); 
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
+  const [formData] = useState({
     firstname: '',
     lastname: '',
     location: 'abuja',
