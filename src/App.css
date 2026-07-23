@@ -231,17 +231,36 @@ img{
   width: 90px;
   cursor: pointer;
 } 
-form{
+form,.items, .displayList{
   background-color: rgb(60, 60, 78);
   display:flex; justify-content: center; 
   align-items: center;
   min-height: screen;
 }
-.form{
+.form, .itemSelector{
   width: 400px;
   background-color: gray;
   padding: 5px;
   border:1px groove gold;
   border-radius: 5px 25px; 
   margin-top: 30px;
+}
+.addItembtn{
+  background-color: green;padding:10px;margin:5px;
+  border: hidden;border-radius: 9px 29px;
+  width: 100%
+  
+}
+.addItembtn:hover{background-color: greenyellow; cursor: pointer}
+.displayList{
+  background-color: rgb(60, 60, 78);;
+  display: flex;
+ flex-direction: column;
+  gap: 15px;
+  margin-bottom: 10px
+}
+.displayList>div{
+  border:  1px groove gold;
+  border-radius: 5px 25px;
+  padding:9px
 }

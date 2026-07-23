@@ -5,7 +5,7 @@ interface User{
     lastname: string,
     location: string,
     mobileNumber: string,
-    // password: string | number,
+     password: string | number,
 }
 interface UserState{
   user: User | null,
