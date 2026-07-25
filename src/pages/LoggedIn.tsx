@@ -5,16 +5,20 @@ import { useState,type ChangeEvent } from 'react'
  interface ItemData{
     name: string;
       count: number; 
-      //price:{
-        //shirt:number,trouser: number,kaftan:number
-      //};
- }
+      price:number
+      }
+
+      const itemPrice: Record<string, number>= {
+        shirt: 500, 
+        trouser: 400,
+        kaftan: 1200
+      }
 function Welcome(){
   const lastname = userDetails((state) => state.user?.lastname);
 
-  //const [price, setPrice] = useState<number>(0)
+
   const [addItems, setAddItems] = useState<ItemData[]>([])
-  const [selectedItem, setSelectedItem] = useState<string>('Shirt')
+  const [selectedItem, setSelectedItem] = useState<string>('shirt')
   const [quantity, setQuantity] = useState<number>(0);
 
   const addQuantity = () => setQuantity(q => q + 1)
@@ -30,16 +34,20 @@ function Welcome(){
       setQuantity(0); 
      };
     const addItem = ()=>{
+      if(quantity === 0) return;
+
       setAddItems(prevItems =>{
+         const uniquePrice = itemPrice[selectedItem] || 0
         const itemExists = prevItems.find((Item) => 
           Item.name === selectedItem );
+
         if(itemExists) 
           return prevItems.map((item) =>
         item.name ===selectedItem ? 
-        {...item, count:item.count + quantity}: item);
+        {...item, count:item.count + quantity, }: item);
         return  [
         ...prevItems, {name: selectedItem,
-          count: quantity
+          count: quantity, price:uniquePrice
         }
       ]
       })
@@ -48,7 +56,10 @@ function Welcome(){
         setAddItems((prevItem) => 
           prevItem.filter((item) => item.name !==itemName)
         )
-      }
+      };const totalQuantity = addItems.reduce((acc, curr) => 
+        acc + curr.count, 0); const totalPrice =
+         addItems.reduce((acc, curr)=> acc + (curr.count * curr.price), 0
+        )
 
   return(
     <>
@@ -81,14 +92,22 @@ function Welcome(){
           {addItems.length > 0 ? (addItems.map((item, index)=>
              (<div key={index}>
               <p>
-              Added {item.count}  {item.name}
+              Added {item.count}  {item.name}(s) for
+               NGN{item.price} each
               </p> 
+              <span>
+                (Subtotal: NGN{item.count * item.price})  
+              </span>
               <button onClick={() => 
                 deletItem(item.name)}>Remove Item</button>
                 </div>
           ))): (<p>No items added yet</p>)
           }
         </div>
+        <p>
+                Total Items: {totalQuantity} Total price: 
+                {totalPrice}
+              </p>
     </section>
     </>
   )
