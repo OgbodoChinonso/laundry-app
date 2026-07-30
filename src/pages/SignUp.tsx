@@ -14,7 +14,7 @@ function SignUp() {
   const [formData, setFormData] = useState({
    firstname:'',
   lastname:'',
-  location: 'abuja',
+  location: '',
   mobileNumber: '',
   password: ''
 
@@ -34,13 +34,14 @@ function SignUp() {
  }
   return (
     <>
-    <form onSubmit={handleSubmit}>
-      <div className='form'>
+    <section className='signUpSection'>
+        <form onSubmit={handleSubmit}>
+      <div className='signUpForm'>
         <h2 className=''>Lastname</h2>
               <input type='text'
               value={formData.lastname} 
               onChange={handleChange}
-               className=''
+               required
                name= 'lastname'
                 placeholder='Input lastname' />
 
@@ -48,14 +49,14 @@ function SignUp() {
               <input type='text' 
                 value={formData.firstname}
                 onChange={handleChange}
-                className='' 
+                required 
                 name= 'firstname'
                 placeholder='Input firstname' />
 
                <h2 className=''> Mobile Number</h2>
               <input type='text' 
                 value={formData.mobileNumber} 
-                className=''
+                required
                 name= 'mobileNumber'
                 placeholder='input mobile number'
                 onChange={handleChange} />
@@ -66,7 +67,7 @@ function SignUp() {
                   onChange={handleChange}
                   value={formData.location} 
                   name='location' 
-                  className=''>
+                  required>
                 <option value='abuja' >Abuja</option>
                 <option value='kaduna' >Kaduna</option>
                 <option value='lagos'>Lagos</option>
@@ -76,16 +77,18 @@ function SignUp() {
               </label>
 
               <h2 className=''>Password</h2>
-              <input type='password' className='' placeholder='Password' /> 
+              <input type='password' required placeholder='Password' /> 
  
                 <button 
-                  type='submit' className=''>Sign up</button>
+                  type='submit'>Sign up</button>
                 <div className=''>
                   <p>Already have an account ? Login your account</p>
-                <Link to='/login'><button type='button'>Login</button></Link>
+                <Link to='/login' 
+                className='linkBtn'>Login</Link>
                 </div>
       </div>
     </form> 
+    </section>
     </>
   )
 }

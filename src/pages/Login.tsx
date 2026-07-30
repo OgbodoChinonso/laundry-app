@@ -24,33 +24,37 @@ function Login() {
 
   const handleSubmit = (e: SubmitEvent) => {
     e.preventDefault();
+    
 
     loginUser(formData);
     navigate('/welcome');
   };
   return (
     <>
-    <form onSubmit={handleSubmit}>
-      <div className='form'>
-
-        <h2 className=''>Name</h2>
+    <section className='loginSection'>
+       <form onSubmit={handleSubmit}>
+      <div className='loginForm'>
+        <h2>Name</h2>
               <input type='text' 
                name='lastname' 
                value={formData.lastname}
-               onChange={handleChange} className='' placeholder='Input name' />
-
-              <h2 className=''>Password</h2>
+               onChange={handleChange}
+                className='' placeholder='Input name' 
+                required/>
+             <h2>Password</h2>
               <input value={formData.password}
-               type='password' className=''
-                placeholder='Password' /> 
+               type='password'
+               name='password'
+               onChange={handleChange}
+                placeholder='Password' required /> 
+                <button type='submit' className=''>Login</button>
 
-                <button className=''>Login</button>
-                <div className=''>
                   <p>Don't have an account?</p>
-                <button type='submit' className=''><Link to="/signup">Sign up</Link></button>
-                </div>
+                <Link to="/signup"
+                className='linkBtn'>Sign up</Link>
       </div>
     </form> 
+    </section>
     </>
   )
 }

@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-import logo from '../assets/images/logo.png'
+import captur from '../assets/images/capture.png'
  import '../App.css'
 
 
@@ -8,9 +8,9 @@ function Nav() {
     <>
      <section >
       <div id="main-header">
-      <img src={logo}></img>
+      <img className='img' src={captur} />
       <header>
-          <h1 style={{ color: "gold" }}>LakeSide Laundry</h1> 
+          <h1 style={{ color: "gold" }}></h1> 
         </header> 
     </div>
      <nav className="main-nav">

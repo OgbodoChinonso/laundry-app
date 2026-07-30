@@ -3,16 +3,14 @@
 
 function HomePage() {
   return (
-    <>      
-      <div className="ticks"></div>
-
-      <section id="next-steps">
+    <div className="next-steps"> 
+      <section >
         <p style={{ color: "gold" }}>Brilliance in every touch...</p>
       </section> 
 
       <div className="ticks"></div>
       <section id="spacer"></section>
-    </>
+    </div>
   );
 }
 

@@ -104,10 +104,12 @@ function Welcome(){
           ))): (<p>No items added yet</p>)
           }
         </div>
-        <p>
+       <div className='grandTotal'>
+         <p>
                 Total Items: {totalQuantity} Total price: 
                 {totalPrice}
               </p>
+       </div>
     </section>
     </>
   )
