@@ -1,4 +1,7 @@
-//import {Link} from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faMinus } from '@fortawesome/free-solid-svg-icons'
+import { FaTrash } from 'react-icons/fa'
 import { userDetails } from '../store/userStore.ts'
 import { useState,type ChangeEvent } from 'react'
 
@@ -80,8 +83,11 @@ function Welcome(){
       value={quantity}
       min='0' 
       placeholder='Put everything' name='quantity'/>
-      <button onClick={removeQuantity}>Reduce</button>
-      <button onClick={addQuantity}>Increase</button>
+      <FontAwesomeIcon icon={faMinus} onClick={removeQuantity}
+      className='faMinusBtn'/>
+      <FontAwesomeIcon icon={faPlus} 
+      onClick={addQuantity} 
+      className="faAddBtn"/>
     </div>
     </section>
     <section style={{color:'white'}}>
@@ -89,17 +95,23 @@ function Welcome(){
         Add item to list
         </button>
         <div className='displayList'>
-          {addItems.length > 0 ? (addItems.map((item, index)=>
-             (<div key={index}>
+          {addItems.length > 0 ? (addItems.map((item)=>
+             (<div key={item.name} 
+             style=
+              {{display:'flex',gap:'15px', backgroundColor: 'darkblue', alignItems:'center',
+               justifyContent: 'space-between '}}>
               <p>
               Added {item.count}  {item.name}(s) for
                NGN{item.price} each
               </p> 
-              <span>
+              <span 
+               className='subTotal'>
                 (Subtotal: NGN{item.count * item.price})  
               </span>
-              <button onClick={() => 
-                deletItem(item.name)}>Remove Item</button>
+              <FaTrash
+               onClick={() => 
+                deletItem(item.name)}
+                className='faMinusBtn' />
                 </div>
           ))): (<p>No items added yet</p>)
           }

@@ -244,7 +244,7 @@ a:hover{
 }
  .itemSelector{
   width: 400px;
-  background-color: rgb(167, 28, 28);
+  background-color: rgb(8, 10, 43);
   padding: 15px;
   border:1px groove gold;
   border-radius: 5px 25px; 
@@ -318,3 +318,30 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
   text-align: center;
   font-size: 15px;
 }
+.faAddBtn{
+  color: rgb(8, 196, 8);
+  font-size: 23px;
+  cursor: pointer;
+  display: inline-block;
+  transition: color 0.3s ease, font-size 0.5s ease;
+  }
+  .faAddBtn:hover{
+    color: rgb(187, 226, 187);
+    font-size: 27px;
+  }
+  .faAddBtn:active{
+    color: darkgreen;
+  }
+  .faMinusBtn{
+  color: rgb(196, 8, 8);
+  font-size: 23px;
+  cursor: pointer;
+  transition: color 0.3s ease, font-size 0.5s ease;
+  }
+  .faMinusBtn:hover{
+    color: rgb(226, 187, 187);
+     font-size: 27px;
+  }
+  .faMinusBtn:active{
+    color: darkred;
+  }
