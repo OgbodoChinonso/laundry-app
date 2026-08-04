@@ -5,6 +5,7 @@ import { FaCheckCircle} from 'react-icons/fa'
 import { userDetails } from '../store/userStore.ts'
 import { useState,type ChangeEvent } from 'react'
 import { Link } from 'react-router-dom'
+//import background from '../assets/images/background.PNG'
 
  interface ItemData{
     name: string;

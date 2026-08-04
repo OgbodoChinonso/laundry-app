@@ -236,11 +236,12 @@ a:hover{
 }
 
 .items, .displayList{
-  background-color: rgb(60, 60, 78);
+  /* background-color: rgb(60, 60, 78); */
+  background-image: url('./assets/images/background.png');
   display:flex; justify-content: center; 
   align-items: center;
   min-height: 100vh;
-
+  
 }
  .itemSelector{
   width: 400px;
