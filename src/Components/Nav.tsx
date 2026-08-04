@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-//import capture from '../assets/images/capture.jpeg'
+//import capture from '../assets/images/capture.PNG'
  import '../App.css'
 
 
@@ -8,8 +8,10 @@ function Nav() {
     <>
      <section >
       <div id="main-header">
-      <img className='img'  alt='laundry name' />
-      <header>
+      {/* <img 
+      className='img'
+       src={capture} alt='laundry name' /> */}
+      <header className='headerLogo'>
           <h1 style={{ color: "gold" }}></h1> 
         </header> 
     </div>
