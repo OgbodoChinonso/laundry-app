@@ -1,9 +1,10 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { faMinus } from '@fortawesome/free-solid-svg-icons'
+import { FaPlus } from 'react-icons/fa'
+import { FaMinus } from 'react-icons/fa'
 import { FaTrash } from 'react-icons/fa'
+import { FaCheckCircle} from 'react-icons/fa' 
 import { userDetails } from '../store/userStore.ts'
 import { useState,type ChangeEvent } from 'react'
+import { Link } from 'react-router-dom'
 
  interface ItemData{
     name: string;
@@ -62,13 +63,19 @@ function Welcome(){
       };const totalQuantity = addItems.reduce((acc, curr) => 
         acc + curr.count, 0); const totalPrice =
          addItems.reduce((acc, curr)=> acc + (curr.count * curr.price), 0
-        )
+        );
+
+        const currentTime = new Date().getHours();
+        const greetings = (currentTime <= 12) ? 'Good morning' :
+        (currentTime >= 12 && currentTime <= 16) ? 'Good Afernoon' : 
+        'Good Evening'  
 
   return(
     <>
     <section style={{color:'white'}} className='items'>
     <div className='itemSelector' style={{color: 'white'}}>
       <div>
+        <h3>{greetings}</h3>
       <h1>Happy to see you {lastname}</h1>
     <p>What do you have for us today ?</p>
     </div>
@@ -83,9 +90,9 @@ function Welcome(){
       value={quantity}
       min='0' 
       placeholder='Put everything' name='quantity'/>
-      <FontAwesomeIcon icon={faMinus} onClick={removeQuantity}
+      <FaMinus onClick={removeQuantity}
       className='faMinusBtn'/>
-      <FontAwesomeIcon icon={faPlus} 
+      <FaPlus 
       onClick={addQuantity} 
       className="faAddBtn"/>
     </div>
@@ -117,10 +124,15 @@ function Welcome(){
           }
         </div>
        <div className='grandTotal'>
-         <p>
+         <span>
                 Total Items: {totalQuantity} Total price: 
                 {totalPrice}
-              </p>
+              </span>
+                <span>Yes, this would be all</span>
+              <Link to='/payment' >
+              <FaCheckCircle style={{fontSize:'35px',
+                color:'green', 
+              }}/></Link>
        </div>
     </section>
     </>

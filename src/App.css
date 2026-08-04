@@ -309,13 +309,16 @@ font-size: 13px;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 .grandTotal{
-  display: felx; justify-content: flex-end;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
   background-color: gold;
   padding: 6px;
   border:none; border-radius: 9px;
   min-width: 60%;
+  min-height: 70px;
   color: black;
-  text-align: center;
+  
   font-size: 15px;
 }
 .faAddBtn{

@@ -7,13 +7,16 @@ import Login from './pages/Login.tsx'
 import SignUp from './pages/SignUp.tsx';
 import AboutUs from './pages/AboutUs.tsx';
 import Welcome from './pages/LoggedIn.tsx'
+import Payment from './pages/Payment.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
+
     <Nav />
     
       <Routes>
+        <Route path='/payment' element={<Payment />} />
         <Route path="/" element={<HomePage />} />
         <Route path='/login' element ={<Login />} /> 
         <Route path='/signup' element={<SignUp />} />
