@@ -130,10 +130,17 @@ function Welcome(){
                 {totalPrice}
               </span>
                 <span>Yes, this would be all</span>
-              <Link to='/payment' >
-              <FaCheckCircle style={{fontSize:'35px',
+              <div >
+                <Link to='/payment' style={{display: 'flex', 
+                justifyContent: 'spaceAround',
+                 textDecoration: 'none',gap: '9px', alignItems:'center',
+                 color: 'green', marginTop: '5px'
+              }} >
+              Proceed to payment
+              <FaCheckCircle style={{fontSize:'25px',
                 color:'green', 
               }}/></Link>
+              </div>
        </div>
     </section>
     </>
