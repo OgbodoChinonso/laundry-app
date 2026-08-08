@@ -10,7 +10,7 @@ function HomePage() {
     <div className="next-steps"> 
       <section>          
       <div className="ticks">
-         <h3 style={{ color: "gold" }}>
+         <h3 style={{ color: "rgb(216, 216, 213)" }}>
           Brilliance in every touch...</h3>
           <span style={{marginTop:'50px', fontSize:'25px'}} 
           className='services'>

@@ -170,7 +170,7 @@
 }
 
 .mainNav{
-  background-color:rgba(97, 66, 66, 0.411);
+  background-color:rgba(155, 7, 7, 0.411);
   border: 1px groove gold;
   border-radius: 35px;
   padding: 7px;
@@ -339,7 +339,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
   height: 400px;
   background: linear-gradient(to right, rgba(19, 18, 18, 0.562),
    rgba(94, 93, 93, 0)),
-   url('./assets/images/background.PNG')
+   url('./assets/images/background3.PNG')
    center / cover no-repeat;
    border:none; border-radius: 5px;
    display: flex; 
